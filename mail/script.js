@@ -1,5 +1,13 @@
 console.log ('JS OK')
 
+// Recupero elemento dal DOM per stampare in Pagina
+
+const validation = document.getElementById('validation')
+
+// Preparo stringa che conterrà il messaggio di verifica
+
+let message = '';
+
 // Creiamo una lista di mail autorizzate
 
 const emails = ['angelocrisci@js.it' , 'angelocrisci@gmail.com' , 'angelocrisci@libero.it' , 'angelocrisci@hotmail.it']
@@ -14,5 +22,7 @@ const confirmButton = document.getElementById('confirm-button')
 confirmButton.addEventListener('click' , function(){
     const emailValue = userEmail.value.trim();
 })
+
+// Controllo se l'email dell'utente è tra quelle autorizzate
 
 
