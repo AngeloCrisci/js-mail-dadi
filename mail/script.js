@@ -21,8 +21,21 @@ const confirmButton = document.getElementById('confirm-button')
 
 confirmButton.addEventListener('click' , function(){
     const emailValue = userEmail.value.trim();
-})
 
 // Controllo se l'email dell'utente è tra quelle autorizzate
+for (let i = 0; i < emails; i++ ){
+    const email = emails[i];
+    if (emailValue === email){
+        message += `<h1> L'email è Autorizzata <h1>`
+    } else {
+        message += `<h1> L'email non è Autorizzata <h1>`
+    }
+}
+})
+
+// Inserisco risultato in Pagina
+
+validation.innerHTML = message;
+
 
 
