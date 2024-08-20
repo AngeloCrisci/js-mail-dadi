@@ -4,10 +4,6 @@ console.log ('JS OK')
 
 const validation = document.getElementById('validation')
 
-// Preparo stringa che conterrà il messaggio di verifica
-
-let message = '';
-
 // Creiamo una lista di mail autorizzate
 
 const emails = ['angelocrisci@js.it' , 'angelocrisci@gmail.com' , 'angelocrisci@libero.it' , 'angelocrisci@hotmail.it']
@@ -17,25 +13,40 @@ const emails = ['angelocrisci@js.it' , 'angelocrisci@gmail.com' , 'angelocrisci@
 const userEmail = document.getElementById('useremail')
 const confirmButton = document.getElementById('confirm-button')
 
+
+
+// Preparo il flag
+
+let isAllowed = false;
+
 // Recupero Email tramite il click del buttuon
 
 confirmButton.addEventListener('click' , function(){
-    const emailValue = userEmail.value.trim();
+// Raccolta dati
+const emailValue = userEmail.value.trim();
 
 // Controllo se l'email dell'utente è tra quelle autorizzate
-for (let i = 0; i < emails; i++ ){
+for (let i = 0; i < emails.length ; i++ ){
     const email = emails[i];
     if (emailValue === email){
-        message += `<h1> L'email è Autorizzata <h1>`
-    } else {
-        message += `<h1> L'email non è Autorizzata <h1>`
+        isAllowed = true;
     }
 }
-})
+// Calcolo il messaggio in pagina
+const message = isAllowed ? 'Benvenuto' : 'Acceso negato'
 
 // Inserisco risultato in Pagina
-
 validation.innerHTML = message;
+
+})
+
+
+
+
+
+
+
+
 
 
 
